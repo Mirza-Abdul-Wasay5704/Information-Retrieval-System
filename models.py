@@ -322,7 +322,7 @@ def get_top_k_similar_docs(query, tfidf_vectors, vocab_index, idf, alpha=0.001, 
 def load_document_content(doc_id):
     try:
         
-        with open(f"D:\IR Boolean Model\Abstracts/{doc_id}.txt", "r", encoding="utf-8") as f:
+        with open(f"Abstracts/{doc_id}.txt", "r", encoding="utf-8") as f:
             content = f.read()
         return {
             "valid": True,
