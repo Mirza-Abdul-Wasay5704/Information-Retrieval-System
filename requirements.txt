@@ -1,3 +1,5 @@
 streamlit
 nltk
 json5
+numpy
+scikit-learn
