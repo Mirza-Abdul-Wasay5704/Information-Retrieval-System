@@ -143,7 +143,7 @@ else:
     # Vector Space Model (VSM) Tab
     with tab3:
         st.session_state.current_tab = "vsm"
-        st.subheader("🔠 Vector Space Model (VSM) Search")
+        st.subheader("✨ Vector Space Model (VSM) Search")
         vsm_query = st.text_input("Enter your search query:")
 
         # Define the number of top similar documents to display
