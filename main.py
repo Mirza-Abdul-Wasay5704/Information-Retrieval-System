@@ -145,21 +145,20 @@ else:
         st.session_state.current_tab = "vsm"
         st.subheader("✨ Vector Space Model (VSM) Search")
         vsm_query = st.text_input("Enter your search query:")
-
-        # Define the number of top similar documents to display
-        top_k = st.slider("Select number of top results", min_value=1, max_value=20, value=10)
+        alpha = st.number_input("Enter alpha value (similarity threshold)", min_value=0.0, max_value=1.0, value=0.001, step=0.001)
 
         if st.button("Search", key="vsm_search"):
             if vsm_query:
                 start_time = time.time()  # Start Timer
-                results = get_top_k_similar_docs(vsm_query, tfidf_vectors, vocab_index, idf, alpha=0.001, k=top_k)
+                # Get all documents by setting k to a large number
+                results = get_top_k_similar_docs(vsm_query, tfidf_vectors, vocab_index, idf, alpha=alpha, k=len(tfidf_vectors))
                 search_time = round(time.time() - start_time, 4)  # End Timer
 
                 if not results.get("valid", False):
                     st.error(results.get("error", "Invalid query"))
                 else:
                     st.success(f"✅ Search completed in {search_time:.4f} seconds!")
-                    st.write(f"### Top {top_k} Similar Documents:")
+                    st.write(f"### Similar Documents (similarity > {alpha}):")
                     
                     if results["results"]:
                         for i, (doc_id, score) in enumerate(results["results"], start=1):
