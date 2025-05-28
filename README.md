@@ -7,6 +7,8 @@
 
 A comprehensive web-based Information Retrieval System built with Streamlit that provides multiple search paradigms: Boolean, Proximity, and Vector Space Model (VSM).
 
+### Check It Out: https://info-retrieval-sys.streamlit.app/
+
 ## 📚 Overview
 
 This Information Retrieval System allows users to search through a collection of documents using three powerful search methods:
